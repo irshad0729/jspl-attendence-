@@ -1,0 +1,131 @@
+<html>
+  <head>
+    <title><%=title%></title>
+    <link rel="stylesheet" href="/css/home.css" />
+    <!-- CSS only -->
+    <!-- add fontawesome cdn link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+
+    <!-- add bootstrap link -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- adding header (navbar) partial  -->
+    <%- include('_header');%>
+
+    <!-- container for project creation and project list -->
+    <div class="container">
+      <div class="row">
+        <div
+          class="h2 pb-2 mb-4 text-success border-bottom border-success fw-bold"
+        >
+          <%=headline%>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <div class="h4 pb-2 mb-4 text-success fw-bold">CREATE PROJECT</div>
+        </div>
+        <div class="col-8">
+          <!-- create project form  -->
+          <form action="/create-project-list" method="post" class="ms-4">
+            <div class="form-floating mb-3 col-8">
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Project Name</label>
+            </div>
+            <div class="form-floating mb-3 col-8">
+              <input
+                type="text"
+                name="description"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+              <label for="floatingPassword">Description</label>
+            </div>
+            <div class="form-floating mb-3 col-8">
+              <input
+                type="text"
+                name="author"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Author</label>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-success">Add Project</button>
+            </div>
+          </form>
+          <!-- create project form-End  -->
+        </div>
+        <div class="col-2"></div>
+      </div>
+      <!-- Render project list -->
+      <div
+        class="h4 pb-2 mb-4 text-success border-bottom border-success fw-bold"
+      >
+        PROJECT LIST
+      </div>
+      <div class="row">
+        <%for(let i of project_list){%>
+
+        <div class="col-2"></div>
+        <div class="col-8">
+          <ul>
+            <a
+              style="text-decoration: none"
+              href="/projectdetails/?id=<%=i.
+            id%>&author=<%=i.author%>&description=<%=i.description%>&name=<%=i.name%>"
+            >
+              <div class="card border-light shadow p-2 mb-2 bg-white">
+                <div class="card-header text-secondary">
+                  <h5 class="card-title" style="display: inline">
+                    <%=i.name%>
+                  </h5>
+                </div>
+                <div class="card-body text-secondary">
+                  <h6 class="card-title"><%=i.description%></h6>
+                  <p class="card-text">
+                    <small>Author : </small><%=i.author%><small
+                      >&ensp;- <%=i.createdAt%></small
+                    >
+                  </p>
+                </div>
+              </div>
+            </a>
+          </ul>
+        </div>
+        <div class="col-2 p-2">
+          <a type="button" href="/delete-project/?id=<%=i._id%>">
+            <img src="https://cdn-icons-png.flaticon.com/24/7799/7799917.png" />
+          </a>
+        </div>
+        <%}%>
+      </div>
+      <!-- Render project list-End -->
+    </div>
+    <i class="fa-thin fa-trash-can"></i>
+
+    <!-- JavaScript Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
