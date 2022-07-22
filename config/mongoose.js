@@ -8,7 +8,14 @@ const DB =
   "mongodb+srv://irshad:root@cluster0.l9zls.mongodb.net/bugtrackdb?retryWrites=true&w=majority";
 
 mongoose
-  .connect(DB)
+  .connect(DB
+  //   ,{
+  //   useNewUrlParser: true,
+  //   useCreateIndex:true,
+  //   useUnifiedTopology:true,
+  //   useFindAndModify:false
+  // }
+  )
   .then(() => {
     console.log("Mongo Atlas server connected ");
   })
