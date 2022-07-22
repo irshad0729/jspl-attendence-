@@ -1,6 +1,7 @@
 // require project details schema
 const ProjectDetail = require("../models/projectDetails");
 
+// rendered the specific project Bugs/Issues list on web page
 module.exports.home = function (req, res) {
   //   res.send("<h1>Home Page </h1><br> <h4>This is my first home page </h4>");
   // console.log("contents of project list", ProjectDetail);
