@@ -1,7 +1,7 @@
-// require express 
+// require express
 const express = require("express");
 
-// require router function 
+// require router function
 const router = express.Router();
 
 // require project details home controller

@@ -18,212 +18,215 @@
   <body>
     <!-- adding header navbar partials -->
     <%- include('_header');%>
-    <div class="container">
+    <div
+          class="h3 pb-2 mb-4 text-secondary border-bottom border-muted fw-bold"
+        >ADD ATTENDANCE</div>
+    <div class="container text-center">
+  <div class="row ">
+    <div class="col-1">
+      
+    </div>
+    <div class="col-10">
       <div class="row">
-        <div class="h4 pb-2 mb-4 text-success fw-bold"><%=headline%></div>
-      </div>
-      <!-- rendered selected project details -->
-      <div class="row me-4">
-        <div class="col-2">
-          <div
-            class="card me-4 shadow p-3 bg-body rounded"
-            style="width: 15rem"
-          >
-            <div class="card-body">
-              <h5 class="card-title"><%=project_name%></h5>
-              <h6 class="card-subtitle mb-3 text-muted">
-                <small>~</small><%=project_author%>
-              </h6>
-              <p class="card-text"><%=project_desc%></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-8">
-          <!-- create project issue form  -->
-          <form
-            action="/projectdetails/create-issue"
-            method="post"
-            class="ms-5 p-3 bg-light bg-gradient shadow mb-2 bg-body rounded"
-            style="width: 810px; height: 230px"
-          >
-            <div class="form-floating">
+    <div class="col-8 ">
+      <!-- create project form  -->
+          <form action="/create-project-list" method="post" class="ms-4">
+            <div class="form-floating mb-3 col">
               <input
                 type="text"
-                name="id"
-                value="<%=project_id%>"
+                name="ename"
                 class="form-control"
                 id="floatingInput"
-                hidden
+                placeholder="name@example.com"
               />
-              <label for="floatingInput">Project Id</label>
+              <label for="floatingInput">Employee Name</label>
             </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-8">
-                  <div class="form-floating mb-2">
-                    <input
-                      type="text"
-                      name="title"
-                      class="form-control"
-                      id="floatingTitle"
-                      placeholder="1"
-                    />
-                    <label for="floatingTitle">Title</label>
-                  </div>
-                </div>
-                <div class="col-4">
-                  <div class="form-floating mb-2">
-                    <select
-                      class="form-select form-select-sm mb-2"
-                      aria-label=".form-select-lg example"
-                      name="label"
-                      placeholder="3"
-                      id="floatingLabel"
-                    >
-                      <option selected>Choose label</option>
-                      <option value="NodeJs">NodeJs</option>
-                      <option value="JavaScript">JavaScript</option>
-                      <option value="ReactJs">ReactJs</option>
-                      <option value="MongoDB">MongoDB</option>
-                      <option value="HTML">HTML</option>
-                    </select>
+            <div class="form-floating mb-3 col">
+              <input
+                type="text"
+                name="ecode"
+                class="form-control"
+                id="floatingPassword"
+                placeholder="Password"
+              />
+              <label for="floatingPassword">Employee Code</label>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-2">
+                <select
+                  class="form-select form-select-sm mb-2"
+                  aria-label=".form-select-lg example"
+                  name="department"
+                  placeholder="3"
+                  id="floatingLabel"
+                >
+                  <option selected>Select Department</option>
+                  <option value="Operation">Operation</option>
+                  <option value="Mechanical">Mechanical</option>
+                  <option value="Electrical">Electrical</option>
+                </select>
 
-                    <label for="floatingLabel">Label</label>
-                  </div>
-                </div>
+                <label for="floatingLabel">Department</label>
               </div>
-              <div class="row">
-                <div class="col">
-                  <div class="form-floating mb-2">
-                    <input
-                      type="text"
-                      name="description"
-                      class="form-control"
-                      id="floatingPassword"
-                      placeholder="2"
-                    />
-                    <label for="floatingPassword">Description</label>
-                  </div>
-                </div>
+            </div>
+            <div class="col">
+              <div class="form-floating mb-2">
+                <select
+                  class="form-select form-select-sm mb-2"
+                  aria-label=".form-select-lg example"
+                  name="shift"
+                  placeholder="3"
+                  id="floatingLabel"
+                >
+                  <option selected>Select Shift</option>
+                  <option value="A-Shift">A-Shift</option>
+                  <option value="B-Shift">B-Shift</option>
+                  <option value="C-Shift">C-Shift</option>
+                </select>
+
+                <label for="floatingLabel">Shift</label>
               </div>
-              <div class="row">
-                <div class="col-9">
-                  <div class="form-floating mb-2 col">
-                    <input
-                      type="text"
-                      name="author"
-                      class="form-control"
-                      id="floatingAuthor"
-                      placeholder="4"
-                    />
-                    <label for="floatingAuthor">Author</label>
-                  </div>
-                </div>
-                <div class="col-3">
-                  <div>
-                    <button
-                      type="submit"
-                      class="btn btn-success"
-                      style="height: 52px; width: 170px"
-                    >
-                      CREATE ISSUE
-                    </button>
-                  </div>
-                </div>
-              </div>
+            </div>
+            <div class="form-floating mb-3 col">
+              <input
+                type="date"
+                name="date"
+                class="form-control"
+                id="floatingInput"
+                placeholder="name@example.com"
+              />
+              <label for="floatingInput">Date</label>
+            </div>
+            <div>
+            
+            
+              <button type="submit" class="btn btn-success">
+                Add Attendance
+              </button>
             </div>
           </form>
-          <!-- create project issueform-End  -->
-        </div>
-        <!-- create form for data search and filter  -->
-        <div class="col-2">
-          <form
-            action="/projectdetails/filter/?project_Id=<%=project_id%>&name=<%=project_name%>&description=<%=project_desc%>&author=<%=project_author%>"
-            method="post"
-            class="ms-4 border border-muted p-2 shadow p-3 mb-1"
+          <!-- create project form-End  -->
+    </div>
+    <div class="col-4 ">
+      <form
+            action="/projectdetails/filter"
+            method="get"
+            class="ms-4 border border-muted p-4 shadow p-3 mb-3"
             style="height: 250px; width: 235px"
           >
             <input
               class="m-1 p-1"
               type="text"
-              name="title"
-              placeholder="search by title"
+              name="ecode"
+              placeholder="search by ecode"
             />
             <input
               class="m-1 p-1"
               type="text"
-              name="author"
-              placeholder="filter by author"
+              name="department"
+              placeholder="filter by name"
             />
-            <div class=" mb-1">
-              <select multiple
-              style="width: 198px;"
+            <div class="mb-1">
+              <select
+                style="width: 198px"
                 class="form-select form-select-sm mb-1"
-                name="label"
+                name="department"
                 placeholder="3"
                 id="floatingLabel"
               >
-                <option selected>NodeJs</option>
-                <option value="JavaScript">JavaScript</option>
-                <option value="ReactJs">ReactJs</option>
-                <option value="MongoDB">MongoDB</option>
-                <option value="HTML">HTML</option>
+                <option selected>Department</option>
+                <option value="Operation">Operation</option>
+                <option value="Mechanical">Mechanical</option>
+                <option value="Electrical">Electrical</option>
               </select>
 
               <!-- <label for="floatingLabel">Label</label> -->
             </div>
-            
+
             <input
               class="m-2 p-1 col-11 btn btn-success"
               type="submit"
               value="FILTER"
             />
           </form>
-        </div>
-      </div>
-      <!-- Render project list -->
-      <div
-        class="h4 pb-2 mb-4 text-success border-bottom border-success fw-bold"
-      >
-        BUGS/ISSUE LIST
-      </div>
+    </div>
+    
+  </div>
+    </div>
+    <div class="col-1 ">
+      
+    </div>
+  </div>
+  <!-- headline row -->
+  <div class="row">
+    <div class="col-1">
+      
+    </div>
+    <div class="col-10">
+      <div class="h3 text-secondary text-decoration-underline m-3 p-2 fw-bold">ATTENDANCE SHEET</div>
+    </div>
+    <div class="col-1">
+      
+    </div>
+  </div>
+</div>
+  <!-- Render attendance list -->
+  <div class="row ">
+    <div class="col-1 ">
+      
+    </div>
+    <div class="col-10 ">
       <div class="row">
-        <%for(let i of project_details){%>
+        <div class="col-1"></div>
+        <div class="col-10">
+          <!-- Attendance Table -->
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Employee code</th>
+                <th scope="col">Employee Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Shift</th>
+                <th scope="col">Date</th>
+              </tr>
+            </thead>
+            <!-- for loop start -->
+            <%let c=0 %>
+            <%for(let i of project_details){%>
 
-        <div class="col-2"></div>
-        <div class="col-8">
-          <ul>
-            <a
-              style="text-decoration: none"
-              href="/projectdetails/?id=<%=i.
-            id%>&author=<%=i.author%>&description=<%=i.description%>&name=<%=i.name%>"
-            >
-              <div
-                class="card border-secondary border-light shadow p-2 mb-2 bg-white"
-              >
-                <div class="card-header text-secondary">
-                  <h5 class="card-title" style="display: inline">
-                    <%=i.title%>
-                  </h5>
-                </div>
-                <div class="card-body text-secondary">
-                  <h6 class="card-title"><%=i.description%></h6>
-                  <p class="card-text"><small>Tech : </small><%=i.label%></p>
-                  <p class="card-text"><small>Author : </small><%=i.author%></p>
-                </div>
-              </div>
-            </a>
-          </ul>
+            <tbody>
+              <tr>
+                <th scope="row"><%=++c%></th>
+                <td><%=i.ecode%></td>
+                <td><%=i.ename%></td>
+                <td><%=i.department%></td>
+                <td><%=i.shift%></td>
+                <td><%=i.date%></td>
+                <td>
+                  <a type="button" href="/delete-project/?id=<%=i._id%>">
+                    <img
+                      src="https://cdn-icons-png.flaticon.com/24/7799/7799917.png"
+                    />
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+            <%}%>
+
+            <!-- for loop end -->
+          </table>
         </div>
-        <div class="col-2">
-          <!-- deleting issue /bug list -->
-          <a type="button" href="/projectdetails/delete-issue/?id=<%=i._id%>">
-            <img src="https://cdn-icons-png.flaticon.com/24/7799/7799917.png" />
-          </a>
-        </div>
-        <%}%>
+        <div class="col-1"></div>
       </div>
-      <!-- Render project list-End -->
+    </div>
+    <div class="col-1 ">
+      
+    </div>
+  </div>
+</div>
+
+
     </div>
   </body>
 </html>

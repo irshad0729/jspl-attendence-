@@ -7,18 +7,21 @@ const mongoose = require("mongoose");
 
 // provide the path of the database on mongodb atlas
 const DB =
-  "mongodb+srv://irshad:root@cluster0.l9zls.mongodb.net/bugtrackdb?retryWrites=true&w=majority";
+  "mongodb+srv://root:root@cluster0.fntqn.mongodb.net/jspl-attend-db?retryWrites=true&w=majority";
+
+// "mongodb+srv://irshad:root@cluster0.l9zls.mongodb.net/bugtrackdb?retryWrites=true&w=majority";
 
 // Established the connection to database
 
 mongoose
-  .connect(DB
-  //   ,{
-  //   useNewUrlParser: true,
-  //   useCreateIndex:true,
-  //   useUnifiedTopology:true,
-  //   useFindAndModify:false
-  // }
+  .connect(
+    DB
+    //   ,{
+    //   useNewUrlParser: true,
+    //   useCreateIndex:true,
+    //   useUnifiedTopology:true,
+    //   useFindAndModify:false
+    // }
   )
   .then(() => {
     console.log("Mongo Atlas server connected ");
@@ -26,8 +29,6 @@ mongoose
   .catch((err) => {
     console.log("error", err);
   });
-
-
 
 // Established the connection to database
 // mongoose.connect("mongodb://localhost/issue_track_db");

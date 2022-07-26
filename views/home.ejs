@@ -25,101 +25,97 @@
     <div class="container">
       <div class="row">
         <div
-          class="h2 pb-2 mb-4 text-success border-bottom border-success fw-bold"
+          class="h3 pb-2 mb-4 text-secondary border-bottom border-secondary fw-bold"
         >
           <%=headline%>
         </div>
       </div>
       <div class="row">
         <div class="col-2">
-          <div class="h4 pb-2 mb-4 text-success fw-bold">CREATE PROJECT</div>
+          <div class="h4 pb-2 mb-4 text-warning fw-bold"></div>
         </div>
         <div class="col-8">
           <!-- create project form  -->
-          <form action="/create-project-list" method="post" class="ms-4">
+          <form action="/create-project-list" method="post" class="ms-10 p-4 border">
             <div class="form-floating mb-3 col-8">
               <input
                 type="text"
-                name="name"
+                name="ename"
                 class="form-control"
                 id="floatingInput"
                 placeholder="name@example.com"
               />
-              <label for="floatingInput">Project Name</label>
+              <label for="floatingInput">Employee Name</label>
             </div>
             <div class="form-floating mb-3 col-8">
               <input
                 type="text"
-                name="description"
+                name="ecode"
                 class="form-control"
                 id="floatingPassword"
                 placeholder="Password"
               />
-              <label for="floatingPassword">Description</label>
+              <label for="floatingPassword">Employee Code</label>
+            </div>
+            <div class="col-8">
+              <div class="form-floating mb-2">
+                <select
+                  class="form-select form-select-sm mb-2"
+                  aria-label=".form-select-lg example"
+                  name="department"
+                  placeholder="3"
+                  id="floatingLabel"
+                >
+                  <option selected>Select Department</option>
+                  <option value="Operation">Operation</option>
+                  <option value="Mechanical">Mechanical</option>
+                  <option value="Electrical">Electrical</option>
+                </select>
+
+                <label for="floatingLabel">Department</label>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="form-floating mb-2">
+                <select
+                  class="form-select form-select-sm mb-2"
+                  aria-label=".form-select-lg example"
+                  name="shift"
+                  placeholder="3"
+                  id="floatingLabel"
+                >
+                  <option selected>Select Shift</option>
+                  <option value="A-Shift">A-Shift</option>
+                  <option value="B-Shift">B-Shift</option>
+                  <option value="C-Shift">C-Shift</option>
+                </select>
+
+                <label for="floatingLabel">Shift</label>
+              </div>
             </div>
             <div class="form-floating mb-3 col-8">
               <input
-                type="text"
-                name="author"
+                type="date"
+                name="date"
                 class="form-control"
                 id="floatingInput"
                 placeholder="name@example.com"
               />
-              <label for="floatingInput">Author</label>
+              <label for="floatingInput">Date</label>
             </div>
             <div>
-              <button type="submit" class="btn btn-success">Add Project</button>
+            
+            
+              <button type="submit" class="btn btn-success">
+                Submit
+              </button>
             </div>
           </form>
           <!-- create project form-End  -->
         </div>
         <div class="col-2"></div>
       </div>
-      <!-- Render project list -->
-      <div
-        class="h4 pb-2 mb-4 text-success border-bottom border-success fw-bold"
-      >
-        PROJECT LIST
-      </div>
-      <div class="row">
-        <%for(let i of project_list){%>
-
-        <div class="col-2"></div>
-        <div class="col-8">
-          <ul>
-            <a
-              style="text-decoration: none"
-              href="/projectdetails/?id=<%=i.
-            id%>&author=<%=i.author%>&description=<%=i.description%>&name=<%=i.name%>"
-            >
-              <div class="card border-light shadow p-2 mb-2 bg-white">
-                <div class="card-header text-secondary">
-                  <h5 class="card-title" style="display: inline">
-                    <%=i.name%>
-                  </h5>
-                </div>
-                <div class="card-body text-secondary">
-                  <h6 class="card-title"><%=i.description%></h6>
-                  <p class="card-text">
-                    <small>Author : </small><%=i.author%><small
-                      >&ensp;- <%=i.createdAt%></small
-                    >
-                  </p>
-                </div>
-              </div>
-            </a>
-          </ul>
-        </div>
-        <div class="col-2 p-2">
-          <a type="button" href="/delete-project/?id=<%=i._id%>">
-            <img src="https://cdn-icons-png.flaticon.com/24/7799/7799917.png" />
-          </a>
-        </div>
-        <%}%>
-      </div>
-      <!-- Render project list-End -->
-    </div>
-    <i class="fa-thin fa-trash-can"></i>
+      
 
     <!-- JavaScript Bundle with Popper -->
     <script

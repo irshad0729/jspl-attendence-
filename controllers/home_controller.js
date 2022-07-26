@@ -1,4 +1,4 @@
-// require project list schema 
+// require project list schema
 const ProjectList = require("../models/projectList");
 
 // Rendering the project details on page
@@ -11,8 +11,8 @@ module.exports.home = function (req, res) {
       return;
     }
     return res.render("home", {
-      title: "Issue Tracker",
-      headline: "ISSUE TRACKER APP",
+      title: "JSPL",
+      headline: "ONLINE ATTENDANCE SYSTEM",
       project_list: projectList,
     });
   }).sort("-createdAt"); // used to sort project list based on creation date

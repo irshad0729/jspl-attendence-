@@ -4,15 +4,23 @@ const mongoose = require("mongoose");
 // Defining project list schema 
 const projectListSchema = new mongoose.Schema(
   {
-    name: {
+    ename: {
       type: String,
       required: true,
     },
-    description: {
+    ecode: {
       type: String,
       required: true,
     },
-    author: {
+    department: {
+      type: String,
+      required: true,
+    },
+    shift: {
+      type: String,
+      required: true,
+    },
+    date: {
       type: String,
       required: true,
     },

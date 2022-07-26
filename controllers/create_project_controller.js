@@ -1,13 +1,15 @@
 //  required projectDetails schema
 const ProjectList = require("../models/projectList");
 
-// Inserting project data into database 
+// Inserting project data into database
 module.exports.create = function (req, res) {
   ProjectList.create(
     {
-      name: req.body.name,
-      description: req.body.description,
-      author: req.body.author,
+      ename: req.body.ename,
+      ecode: req.body.ecode,
+      department: req.body.department,
+      shift: req.body.shift,
+      date: req.body.date,
     },
     function (err) {
       if (err) {
